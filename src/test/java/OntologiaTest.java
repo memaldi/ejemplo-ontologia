@@ -42,9 +42,7 @@ public class OntologiaTest {
         	// Now, we instantiate HermiT by creating an instance of the Reasoner class in the package org.semanticweb.HermiT.
         	Reasoner hermit=new Reasoner(o);
         	// Finally, we output whether the ontology is consistent.
-		// System.out.println(hermit.isConsistent());
-		//assertNull(hermit.getUnsatisfiableClasses());
-		Node<OWLClass> bottomNode = hermit.getBottomClassNode();
-		assertEquals(bottomNode, hermit.getUnsatisfiableClasses());
+		System.out.println(hermit.getUnsatisfiableClasses());
+		assertEquals(1, hermit.getUnsatisfiableClasses().getSize());
 	}
 }

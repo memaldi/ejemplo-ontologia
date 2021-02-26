@@ -1,4 +1,5 @@
 @prefix : <http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -6,23 +7,31 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38> .
 
-<http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38> rdf:type owl:Ontology .
+<http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38> rdf:type owl:Ontology ;
+                                                                           dc:license "https://www.gnu.org/licenses/gpl-3.0.html" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/license
+dc:license rdf:type owl:AnnotationProperty .
+
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38#formaParteDe
-:formaParteDe rdf:type owl:ObjectProperty ;
-              owl:inverseOf :formadoPor ;
-              rdfs:domain :Componente ;
-              rdfs:range :Vehículo .
+###  http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         rdfs:domain :Vehículo ;
+         rdfs:range :Componente .
 
 
-###  http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38#formadoPor
-:formadoPor rdf:type owl:ObjectProperty ;
-            rdfs:domain :Vehículo ;
-            rdfs:range :Componente .
+###  http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38#isPartOf
+:isPartOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Componente ;
+          rdfs:range :Vehículo .
 
 
 #################################################################
@@ -63,11 +72,7 @@
 
 
 ###  http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38#Vivienda
-:Vivienda rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty :formadoPor ;
-                            owl:someValuesFrom :Componente
-                          ] .
+:Vivienda rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/mikel/ontologies/2021/1/untitled-ontology-38#Volante
